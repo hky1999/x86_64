@@ -12,6 +12,9 @@
 
 pub use crate::addr::{align_down, align_up, PhysAddr, VirtAddr};
 
+#[macro_use]
+extern crate log;
+
 pub mod addr;
 pub mod instructions;
 pub mod registers;

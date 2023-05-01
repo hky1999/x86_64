@@ -88,6 +88,8 @@ impl<'a, P: PageTableFrameMapping> MappedPageTable<'a, P> {
     where
         A: FrameAllocator<Size4KiB> + ?Sized,
     {
+        debug!("map_to_2mib flags {:?}", flags);
+        debug!("map_to_2mib parent_table_flags {:?}", parent_table_flags);
         let p4 = &mut self.level_4_table;
         let p3 = self.page_table_walker.create_next_table(
             &mut p4[page.p4_index()],
